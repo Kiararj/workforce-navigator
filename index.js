@@ -15,8 +15,8 @@ function init() {
     .prompt(prompts)
     .then((response) => {
         console.log(response)
-});
-}
+})
+};
 
 // Function call to initialize app
 init();
