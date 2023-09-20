@@ -4,7 +4,7 @@ const db = require('./config/connection');
 
 const prompts = [
     { type: "list",
-      message: "What table would you like to do",
+      message: "What would you like to do?",
       choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee Role"]
     },
 ];
@@ -20,9 +20,3 @@ function init() {
 
 // Function call to initialize app
 init();
-
-// Function to view all departments
-
-    // db.query('SELECT * FROM department'). function (err, results){
-    //     console.log(results);
-    // };  
