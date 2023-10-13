@@ -54,7 +54,7 @@ const viewAllDepartments = () => {
 };
 
 const viewAllRoles = () => {
-  db.query('SELECT * FROM role;', (err, results) => {
+  db.query('SELECT role.id, title, salary, department.name AS department FROM role JOIN department ON role.department_id = department.id;', (err, results) => {
     if (err){
       throw err;
     }
@@ -83,12 +83,12 @@ const addDepartment = () => {
     }
   ])
   .then(answer => {
-    const departmentName = answer.departmentName;
-    db.query('INSERT INTO department (name) VALUES (?)', [departmentName], (err, result) => {
+    const newDepartmentName = answer.departmentName;
+    db.query('INSERT INTO department (name) VALUES (?)', [newDepartmentName], (err, result) => {
       if (err) {
         throw err;
       }
-      console.log(`Department added!`);
+      console.log(`New department added!`);
       init();
     });
   })
@@ -97,11 +97,50 @@ const addDepartment = () => {
   });
  };
 
+//  const addRole = () => {
 
-// -- Add a department --
-// INERT INTO department (id, name)
-// VALUES ('', '');
+//  };
 
+//  const addEmployee = () => {
+//   inquirer
+//   .prompt([
+//     {
+//       type: 'input',
+//       name: 'employeeFirstName',
+//       message: "What is the employee's first name?"
+//     },
+//     {
+//       type: 'input',
+//       name: 'employeeLastName',
+//       message: "What is the employee's last name?"
+//     },
+//     {
+//       type: 'number',
+//       name: 'managerId',
+//       message: "What would you like the employee's manager_id to be?"
+//     },
+//     {
+//       type: 'number',
+//       name: 'roleId',
+//       message: "What would you like the employee's role_id to be?"
+//     }
+//   ])
+//   .then(answer => {
+//     const newEmployeeFirstName = answer.EmployeeFirstName;
+//     db.query('INSERT INTO employee (first_name, last_name, manager_id, role_id) VALUES (?, ?, ?, ?)', [newEmployeeFirstName], (err, result) => {
+//       if (err) {
+//         throw err;
+//       }
+//       console.log(`New employee added!`);
+//       init();
+//     });
+//   })) 
+//   })
+//  };
+
+//  const updateEmployeeRole () => {
+
+//  }
 // -- Add an employee --
 // INSERT INTO employee (title, salary, department_id)
 // VALUES ('', '', '');
