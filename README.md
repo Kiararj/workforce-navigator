@@ -17,9 +17,7 @@ First, clone the repository. Next, run `npm install` in your local IDE's termina
 
 Choose from the seven options presented to either create a table, add to a table, or update a table.
 
-    ```md
-    ![alt text](assets/screenshot-one.png)
-    ```
+![alt text](assets/screenshot-one.png "screenshot of application")
 
 Check out a walkthrough video here: https://drive.google.com/file/d/1HTnl60bV3Ij7yozWs6mm43mtYE0ahCnJ/view?usp=sharing
 
